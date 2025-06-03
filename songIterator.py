@@ -6,7 +6,8 @@ from random import sample
 #parses through the csv file and creates a list of tuples for all billboard songs.
 #the tuple order is (year, song name, song artist)
 allSongs = []
-with open('/Users/nikhil.c/Downloads/charts.csv') as csv_file:
+# Use the local copy of the data set shipped with the repository
+with open('charts.csv', newline='') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
@@ -21,7 +22,7 @@ with open('/Users/nikhil.c/Downloads/charts.csv') as csv_file:
 valuesToRemove = []
 counter = 0
 for song in allSongs:
-    if (int(song[0]) < 1970 or int(song[0])>2020):
+    if (int(song[0]) < 1960 or int(song[0])>2020):
         print(song)
         valuesToRemove.append(counter)
     counter = counter + 1
